@@ -18,18 +18,28 @@ package com.example.androiddevchallenge
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.androiddevchallenge.ui.theme.MyTheme
+import androidx.core.view.WindowCompat
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.login.Login
+import com.example.androiddevchallenge.ui.theme.BloomTheme
+import com.example.androiddevchallenge.ui.welcome.Welcome
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
-            MyTheme {
+            BloomTheme {
                 MyApp()
             }
         }
@@ -39,15 +49,30 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
-    Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+    val navController = rememberNavController()
+    print("yidong " + ColorSpaces.Srgb.getMinValue(0))
+    print("yidong" + ColorSpaces.Srgb.getMaxValue(1))
+    NavHost(navController, startDestination = "welcome") {
+        composable("welcome") {
+            Welcome(onWelcomeFinish = {
+                navController.navigate("login")
+            })
+        }
+        composable("login") {
+            Login(onLoginSuccess = {
+                navController.navigate("home")
+            })
+        }
+        composable("home") {
+
+        }
     }
 }
 
 @Preview("Light Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun LightPreview() {
-    MyTheme {
+    BloomTheme {
         MyApp()
     }
 }
@@ -55,7 +80,7 @@ fun LightPreview() {
 @Preview("Dark Theme", widthDp = 360, heightDp = 640)
 @Composable
 fun DarkPreview() {
-    MyTheme(darkTheme = true) {
+    BloomTheme(darkTheme = true) {
         MyApp()
     }
 }
