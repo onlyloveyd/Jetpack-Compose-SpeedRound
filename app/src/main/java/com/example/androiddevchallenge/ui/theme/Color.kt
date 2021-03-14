@@ -26,10 +26,8 @@ val pink100 = Color(0xFFFFF1F1)
 val pink900 = Color(0xFF3F2C2C)
 
 val white = Color(0xFFFFFFFF)
-val white850 = Color(0xFFFFFFFF)
-val white150 = Color(0xFFFFFFFF)
-// val white850 = Color(255F, 255F, 255F, 0.85F) // @todo white850
-// val white150 = Color(255F, 255F, 255F, 0.15F) /// @todo white150
+val white850 = Color(1F, 1F, 1F, 0.85F) // @todo white850
+val white150 = Color(1F, 1F, 1F, 0.15F) /// @todo white150
 val gray = Color(0xFF232323)
 
 val green900 = Color(0xFF2D3B2D)

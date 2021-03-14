@@ -20,7 +20,6 @@ import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.NavHost
@@ -55,8 +54,6 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyApp() {
     val navController = rememberNavController()
-    print("yidong " + ColorSpaces.Srgb.getMinValue(0))
-    print("yidong" + ColorSpaces.Srgb.getMaxValue(1))
     NavHost(navController, startDestination = "welcome") {
         composable("welcome") {
             Welcome(
