@@ -77,7 +77,7 @@ fun Welcome(onLoginClicked: () -> Unit) {
                 modifier = Modifier.padding()
             )
             Text(
-                text = "Beautiful home garden solutions",
+                text = stringResource(R.string.welcom_hint),
                 style = MaterialTheme.typography.subtitle1,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
@@ -99,7 +99,7 @@ fun Welcome(onLoginClicked: () -> Unit) {
                         .height(48.dp)
                 ) {
                     Text(
-                        text = "Create account",
+                        text = stringResource(R.string.create_account),
                         style = MaterialTheme.typography.button,
                         textAlign = TextAlign.Center,
                     )

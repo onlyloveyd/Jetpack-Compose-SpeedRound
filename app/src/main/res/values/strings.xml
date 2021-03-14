@@ -27,6 +27,8 @@
     <string name="password_hint">Password (8+ characters)</string>
     <string name="terms">Terms of Use</string>
     <string name="privancy">Privacy Policy</string>
+    <string name="create_account">Create account</string>
+    <string name="welcom_hint">Beautiful home garden solutions</string>
 
 
 </resources>
