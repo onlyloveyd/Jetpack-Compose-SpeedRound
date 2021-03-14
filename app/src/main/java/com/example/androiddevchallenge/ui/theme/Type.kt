@@ -23,7 +23,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 
-
 val NunitoSansFamily = FontFamily(
     Font(R.font.nunitosans_light, FontWeight.Light),
     Font(R.font.nunitosans_bold, FontWeight.Bold),

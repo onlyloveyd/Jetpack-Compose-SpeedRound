@@ -9,5 +9,24 @@
       or implied. See the License for the specific language governing permissions and limitations under
       the License.
       -->
-    <string name="app_name">AndroidDevChallenge</string>
+    <string name="app_name">Bloom</string>
+    <string name="login_terms">By clicking below, you agree to our Terms of Use and consent to our Privacy Policy</string>
+
+    <string name="home">Home</string>
+    <string name="favorites">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="cart">Cart</string>
+
+    <string name="login">Log in</string>
+
+
+    <string name="browser_themes">Browser Themes</string>
+    <string name="design_your_home_garden">Design your home garden</string>
+    <string name="login_title">Log in with email</string>
+    <string name="email_hint">Email Address</string>
+    <string name="password_hint">Password (8+ characters)</string>
+    <string name="terms">Terms of Use</string>
+    <string name="privancy">Privacy Policy</string>
+
+
 </resources>

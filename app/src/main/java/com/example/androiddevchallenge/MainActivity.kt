@@ -16,31 +16,36 @@
 package com.example.androiddevchallenge
 
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.colorspace.ColorSpaces
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
+import com.example.androiddevchallenge.ui.home.Main
 import com.example.androiddevchallenge.ui.login.Login
 import com.example.androiddevchallenge.ui.theme.BloomTheme
 import com.example.androiddevchallenge.ui.welcome.Welcome
+import dev.chrisbanes.accompanist.insets.ProvideWindowInsets
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = getColor(android.R.color.transparent)
         WindowCompat.setDecorFitsSystemWindows(window, false)
-
         setContent {
-            BloomTheme {
-                MyApp()
+            ProvideWindowInsets {
+                BloomTheme {
+                    MyApp()
+                }
             }
         }
     }
@@ -54,17 +59,21 @@ fun MyApp() {
     print("yidong" + ColorSpaces.Srgb.getMaxValue(1))
     NavHost(navController, startDestination = "welcome") {
         composable("welcome") {
-            Welcome(onWelcomeFinish = {
-                navController.navigate("login")
-            })
+            Welcome(
+                onLoginClicked = {
+                    navController.navigate("login")
+                }
+            )
         }
         composable("login") {
-            Login(onLoginSuccess = {
-                navController.navigate("home")
-            })
+            Login(
+                onLoginSuccess = {
+                    navController.navigate("main")
+                }
+            )
         }
-        composable("home") {
-
+        composable("main") {
+            Main()
         }
     }
 }
